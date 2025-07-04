@@ -1,4 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Poker Scoring App
+
+A **real-time collaborative** web application for agile teams to estimate story points using the Fibonacci sequence in planning poker sessions.
+
+## 🚀 **Vercel Ready** - Deploy in Seconds!
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/poker-scoring-app)
+
+✅ **Zero Configuration Deployment**  
+✅ **Serverless & Scalable**  
+✅ **Real-time Polling (2-4s updates)**  
+✅ **Free Hosting on Vercel**
+
+## ✨ Features
+
+- **🔢 Fibonacci Sequence Voting**: Use the standard Fibonacci sequence (1, 2, 3, 5, 8, 13, 21, 34, 55, 89) for story point estimation
+- **⚡ Real-time Collaboration**: Multiple team members can join the same session using WebSockets and vote simultaneously
+- **🔒 Anonymous Voting**: Votes are hidden until all players have voted, preventing bias
+- **📊 Automatic Calculations**: Displays average score and suggested story points
+- **💻 Clean UI**: Modern, responsive design built with Next.js and Tailwind CSS
+- **📝 Story Description**: Add context by describing the story or feature being estimated
+- **🌐 Session Management**: Create or join sessions with shareable session IDs
+- **👥 Live Player Status**: See who's online, who has voted, and who's still thinking
+- **📱 Copy Session ID**: Easy sharing with team members
+
+## 🏁 How to Use
+
+### For Session Creator:
+1. **Create Session**: A unique session ID is automatically generated
+2. **Enter Your Name**: Add your name to join as the first player
+3. **Share Session ID**: Copy and share the session ID with your team
+4. **Add Story**: Describe the story or feature you're estimating
+
+### For Team Members:
+1. **Get Session ID**: Receive the session ID from your team lead
+2. **Join Session**: Enter your name and the session ID
+3. **Wait for Story**: See the story description added by the team
+
+### For Everyone:
+4. **Vote**: Select your estimate using the Fibonacci sequence buttons
+5. **Wait**: Once you've voted, wait for other team members to finish
+6. **Reveal**: When all players have voted, anyone can click "Reveal Votes"
+7. **Review**: See individual votes, average score, and suggested story points
+8. **Reset**: Start a new round by clicking "Reset Votes"
 
 ## Getting Started
 
@@ -6,31 +49,55 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type safety and better developer experience
+- **Socket.IO** - Real-time WebSocket communication
+- **Tailwind CSS v4** - Modern utility-first CSS framework
+- **Radix UI** - Accessible UI components
+- **Lucide React** - Beautiful icons
+- **Custom Express Server** - Handles WebSocket connections
 
-## Learn More
+## Planning Poker Best Practices
 
-To learn more about Next.js, take a look at the following resources:
+- **Discuss first**: Before voting, make sure everyone understands the story
+- **No discussion during voting**: Avoid influencing others while they're voting
+- **Reveal together**: Wait for everyone to vote before revealing
+- **Discuss discrepancies**: If votes vary significantly, discuss the differences
+- **Re-vote if needed**: After discussion, you can reset and vote again
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To start editing the app, modify `src/app/page.tsx` or `src/components/PokerScoring.tsx`. The page auto-updates as you edit the file.
 
-## Deploy on Vercel
+## 🚀 Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🎆 **Instant Deploy to Vercel** (Recommended)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Push to GitHub**:
+   ```bash
+   git add . && git commit -m "Deploy poker app" && git push
+   ```
+
+2. **Deploy to Vercel**:
+   - Visit [vercel.com](https://vercel.com)
+   - Import your GitHub repository
+   - Click "Deploy" - No configuration needed!
+
+📝 **Read the full [Vercel Deployment Guide](./VERCEL_DEPLOYMENT.md)** for details.
+
+### 🔌 **Alternative: Self-Hosted with Socket.IO**
+
+For instant WebSocket updates on your own server:
+
+```bash
+npm run build
+npm run start:socket
+```
+
+**Socket.IO version** provides instant real-time updates but requires a persistent server.
