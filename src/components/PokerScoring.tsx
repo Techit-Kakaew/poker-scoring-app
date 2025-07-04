@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
-import { Users, Eye, EyeOff, RotateCcw, Calculator } from 'lucide-react'
+import { Users, Eye, RotateCcw, Calculator } from 'lucide-react'
 
 const FIBONACCI_SEQUENCE = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 

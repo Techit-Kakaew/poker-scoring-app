@@ -11,13 +11,7 @@ interface Player {
   socketId?: string
 }
 
-interface PokerSession {
-  id: string
-  story: string
-  players: Player[]
-  revealed: boolean
-  averageScore: number | null
-}
+// PokerSession interface moved to sessionStore for consistency
 
 interface SocketContextType {
   socket: Socket | null

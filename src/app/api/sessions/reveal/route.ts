@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     // Calculate average
     const votedPlayers = Array.from(session.players.values()).filter(p => p.hasVoted && p.score !== null)
     const average = votedPlayers.length > 0 
-      ? votedPlayers.reduce((sum, p) => sum + p.score, 0) / votedPlayers.length
+      ? votedPlayers.reduce((sum, p) => sum + (p.score || 0), 0) / votedPlayers.length
       : null
     
     session.averageScore = average

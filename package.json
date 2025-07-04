@@ -6,9 +6,13 @@
     "dev": "next dev",
     "dev:socket": "node server.js",
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
     "start:socket": "NODE_ENV=production node server.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel-build": "npm run build",
+    "type-check": "tsc --noEmit",
+    "test:build": "npm run build && npm run start"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.7",
