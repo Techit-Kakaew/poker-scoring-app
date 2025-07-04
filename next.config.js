@@ -100,7 +100,7 @@ const nextConfig = {
   },
   
   // Output configuration - 'export' for Netlify, 'standalone' for Vercel
-  output: process.env.NETLIFY ? 'export' : 'standalone',
+  // output: process.env.NETLIFY ? 'export' : 'standalone',
   trailingSlash: true,
   distDir: process.env.NETLIFY ? 'out' : '.next',
   
