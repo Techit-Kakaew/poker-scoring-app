@@ -1,0 +1,86 @@
+[build]
+  publish = "out"
+  command = "npm run build:netlify"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_VERSION = "10"
+
+# Netlify Functions
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Redirects for API routes to Netlify Functions
+[[redirects]]
+  from = "/api/sessions/join"
+  to = "/.netlify/functions/sessions-join"
+  status = 200
+
+[[redirects]]
+  from = "/api/sessions/vote"
+  to = "/.netlify/functions/sessions-vote"
+  status = 200
+
+[[redirects]]
+  from = "/api/sessions/reveal"
+  to = "/.netlify/functions/sessions-reveal"
+  status = 200
+
+[[redirects]]
+  from = "/api/sessions/reset"
+  to = "/.netlify/functions/sessions-reset"
+  status = 200
+
+[[redirects]]
+  from = "/api/sessions/update-story"
+  to = "/.netlify/functions/sessions-update-story"
+  status = 200
+
+[[redirects]]
+  from = "/api/sessions/heartbeat"
+  to = "/.netlify/functions/sessions-heartbeat"
+  status = 200
+
+[[redirects]]
+  from = "/api/sessions/:sessionId"
+  to = "/.netlify/functions/sessions-get"
+  status = 200
+
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/health"
+  status = 200
+
+[[redirects]]
+  from = "/api/cleanup"
+  to = "/.netlify/functions/cleanup"
+  status = 200
+
+# SPA fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Form handling (if needed for future features)
+[forms]
+  settings = false
