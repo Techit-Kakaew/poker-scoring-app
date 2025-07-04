@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sessionStore } from '@/lib/sessionStore'
 
+
 export async function GET(_request: NextRequest) {
   try {
     // Basic health check

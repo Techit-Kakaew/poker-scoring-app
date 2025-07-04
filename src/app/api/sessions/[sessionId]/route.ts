@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSession, updateSession, sessionToJSON, cleanupInactivePlayers } from '@/lib/sessionStore'
 
+
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ sessionId: string }> }

@@ -104,6 +104,17 @@ const nextConfig = {
   trailingSlash: true,
   distDir: process.env.NETLIFY ? 'out' : '.next',
   
+  // Exclude API routes when building for Netlify (they'll be handled by Netlify Functions)
+  ...(process.env.NETLIFY && {
+    // Remove Next.js redirects and headers for static export
+    async redirects() {
+      return []
+    },
+    async headers() {
+      return []
+    },
+  }),
+  
   // TypeScript configuration
   typescript: {
     ignoreBuildErrors: false,

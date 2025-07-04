@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSession, createSession, updateSession, sessionToJSON } from '@/lib/sessionStore'
 
+
 export async function POST(request: NextRequest) {
   try {
     const { sessionId, player } = await request.json()

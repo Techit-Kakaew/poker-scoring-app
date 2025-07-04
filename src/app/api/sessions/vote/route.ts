@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSession, updateSession, sessionToJSON } from '@/lib/sessionStore'
 
+// Required for static export
+export const dynamic = 'force-dynamic'
+
 export async function POST(request: NextRequest) {
   try {
     const { sessionId, playerId, score } = await request.json()
